@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+{% block content %}
+
+  <header id="hero" class="hero">
+      <a href="{{ url_for('index') }}" class="button-8 w-button">Back to Homepage</a>
+
+<br><br><br>
+    <div class="flex-container w-container">
+      <div>
+        <form method="post">
+        {{ form.csrf_token() }}
+            {% if valueError %}
+                <strong style="color:red">Make sure to enter a decimal value in the cost field.</strong><br>
+            {% endif %}
+            <strong>Description: </strong>
+            <p> {{ form.description }}</p><br>
+            <strong>Category: </strong>
+            <p> {{ form.category }}</p><br>
+            <strong>Cost: </strong>
+            <p> {{ form.cost }}</p><br>
+            <strong>Currency: </strong>
+            <p> {{ form.curr }}</p><br>
+            <strong>Date: </strong>
+            <p> {{ form.date }}</p><br>
+        <input value="Submit" class="button-8 w-button" type="submit">
+    </form>
+      </div>
+    </div>
+
+  </header>
+
+{% endblock %}
